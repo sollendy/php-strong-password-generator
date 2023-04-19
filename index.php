@@ -1,9 +1,16 @@
 <?php
     //variabili
     $passwLenght = $_GET["lunghezza"];
+    //
+    //funzioni
     function $generaPassw() {
-        $minus = ('abcdefghilmnopqrstuvz')
-    }
+        // $caratteri = (',.!£$&/?+-:;_#\|1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz');
+        $minuscole = ("abcefghijklmnopqrstuvwxyz");
+        $maiuscole = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        $numeri = ("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        $bimbiSpeciali = (",.!£$&/?+-:;_#\|");
+        return substr(str_shuffle($minuscole, $maiuscole, $numeri, $bimbiSpeciali), 0, $passwLenght);
+    };
     //
 ?>
 
@@ -23,6 +30,7 @@
         <label for="password">Lunghezza password: </label>
         <input name="lunghezza" type="number">
     </form>
+    <?php echo $generaPassw ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
