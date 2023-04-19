@@ -1,9 +1,9 @@
 <?php
     //variabili
-    $passwLenght = $_GET["lunghezza"];
+    $passwLenght = $_GET["lengthInput"];
     //
     //funzioni
-    function $generaPassw() {
+    function $generaPassw($passwLenght) {
         // $caratteri = (',.!£$&/?+-:;_#\|1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz');
         $minuscole = ("abcefghijklmnopqrstuvwxyz");
         $maiuscole = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
@@ -26,11 +26,12 @@
 <body>
     <div class="form-cnt w-75 m-auto text-center">
         <h1>form per password</h1>
-    <form action="#">
+    <form action="index.php" method="GET">
         <label for="password">Lunghezza password: </label>
-        <input name="lunghezza" type="number">
+        <input name="lengthInput" type="number">
+        <input type="submit">
     </form>
-    <?php echo $generaPassw ?>
+    <?php echo $generaPassw(); ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
