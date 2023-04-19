@@ -3,13 +3,13 @@
     $passwLenght = $_GET["lengthInput"];
     //
     //funzioni
-    function $generaPassw($passwLenght) {
-        // $caratteri = (',.!£$&/?+-:;_#\|1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz');
+    function $generaPassw() {
+        $caratteri = (',.!£$&/?+-:;_#\|1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz');
         $minuscole = ("abcefghijklmnopqrstuvwxyz");
         $maiuscole = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         $numeri = ("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         $bimbiSpeciali = (",.!£$&/?+-:;_#\|");
-        return substr(str_shuffle($minuscole, $maiuscole, $numeri, $bimbiSpeciali), 0, $passwLenght);
+        return substr(str_shuffle($caratteri), 0, $passwLenght);
     };
     //
 ?>
