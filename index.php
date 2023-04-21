@@ -1,17 +1,9 @@
 <?php
+    include 'functions.php';
     //variabili
-    $passwLenght = $_GET["lengthInput"];
-    //
+    
+    
     //funzioni
-    function $generaPassw() {
-        $caratteri = (',.!£$&/?+-:;_#\|1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz');
-        $minuscole = ("abcefghijklmnopqrstuvwxyz");
-        $maiuscole = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        $numeri = ("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        $bimbiSpeciali = (",.!£$&/?+-:;_#\|");
-        return substr(str_shuffle($caratteri), 0, $passwLenght);
-    };
-    //
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +19,18 @@
     <div class="form-cnt w-75 m-auto text-center">
         <h1>form per password</h1>
     <form action="index.php" method="GET">
-        <label for="password">Lunghezza password: </label>
-        <input name="lengthInput" type="number">
+        <label for="number">Lunghezza password: </label>
+        <input name="lengthInput" type="number" min="4" step="1">
         <input type="submit">
     </form>
-    <?php echo $generaPassw(); ?>
+    <?php  
+    //il controllo sottostante serve a far sì che non vi sia un errore nella definizione dell'elemento lengthinput una volta tornati indietro 
+    //dall'url dopo la manipolazione avvenuta da parte dell'utente
+    if(isset($_GET['lengthInput'])) {
+        echo generaPassw($_GET['lengthInput']);
+        //in questo modo lengthinput sarà sempre settato
+    }
+    ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
